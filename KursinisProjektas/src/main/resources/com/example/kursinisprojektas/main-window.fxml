@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane prefHeight="443.0" prefWidth="674.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kursinisprojektas.fxControllers.MainWindow">
+   <children>
+      <TabPane fx:id="tabPane" prefHeight="464.0" prefWidth="740.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="shopTab" onSelectionChanged="#loadTabData" text="Shop">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="shopList" layoutX="14.0" layoutY="14.0" prefHeight="381.0" prefWidth="248.0" />
+                        <ListView fx:id="cartList" layoutX="282.0" layoutY="14.0" prefHeight="248.0" prefWidth="450.0" />
+                        <Button layoutX="282.0" layoutY="309.0" mnemonicParsing="false" onAction="#loadReviewForm" text="Leave a review" />
+                        <Button layoutX="14.0" layoutY="401.0" mnemonicParsing="false" onAction="#addCart" prefHeight="26.0" prefWidth="247.0" text="Add to cart" />
+                        <Button layoutX="282.0" layoutY="274.0" mnemonicParsing="false" onAction="#removeCart" prefHeight="26.0" prefWidth="170.0" text="Remove from cart" />
+                        <Button layoutX="555.0" layoutY="274.0" mnemonicParsing="false" onAction="#buyItems" prefHeight="26.0" prefWidth="170.0" text="Buy" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="productTab" onSelectionChanged="#loadTabData" text="Products">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="642.0">
+                     <children>
+                        <ListView fx:id="productList" layoutX="14.0" layoutY="14.0" onMouseClicked="#loadProductData" prefHeight="409.0" prefWidth="200.0" />
+                        <TextField fx:id="productTitle" layoutX="230.0" layoutY="42.0" prefHeight="26.0" prefWidth="276.0" promptText="Title" visible="false" />
+                        <TextArea fx:id="productDescription" layoutX="230.0" layoutY="79.0" prefHeight="254.0" prefWidth="275.0" promptText="Description" visible="false" />
+                        <TextField fx:id="qtyField" layoutX="231.0" layoutY="346.0" prefHeight="26.0" prefWidth="80.0" promptText="Quantity" visible="false" />
+                        <Button layoutX="229.0" layoutY="397.0" mnemonicParsing="false" onAction="#createProduct" prefHeight="26.0" prefWidth="120.0" text="Add Product" />
+                        <Button layoutX="414.0" layoutY="397.0" mnemonicParsing="false" onAction="#updateProduct" prefHeight="26.0" prefWidth="120.0" text="Update Product" />
+                        <Button layoutX="600.0" layoutY="397.0" mnemonicParsing="false" onAction="#deleteProduct" prefHeight="26.0" prefWidth="120.0" text="Delete Product" />
+                        <RadioButton fx:id="consoleRadio" layoutX="230.0" layoutY="16.0" mnemonicParsing="false" onAction="#disableProductFields" text="Console">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="productType" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="gameRadio" layoutX="430.0" layoutY="16.0" mnemonicParsing="false" onAction="#disableProductFields" text="Videogame" toggleGroup="$productType" />
+                        <RadioButton fx:id="accessoryRadio" layoutX="622.0" layoutY="16.0" mnemonicParsing="false" onAction="#disableProductFields" text="Accessory" toggleGroup="$productType" />
+                        <TextField fx:id="gamePublisher" layoutX="533.0" layoutY="104.0" prefHeight="26.0" prefWidth="184.0" promptText="Publisher" visible="false" />
+                        <TextField fx:id="accessoryType" layoutX="532.0" layoutY="42.0" prefHeight="26.0" prefWidth="185.0" promptText="Accessory Type" visible="false" />
+                        <TextField fx:id="accessoryPlatform" layoutX="534.0" layoutY="72.0" prefHeight="26.0" prefWidth="183.0" promptText="Accessory Platform" visible="false" />
+                        <TextField fx:id="accessoryManufacturer" layoutX="533.0" layoutY="105.0" prefHeight="26.0" prefWidth="184.0" promptText="Accessory Manufacturer" visible="false" />
+                        <TextField fx:id="consoleManufacturer" layoutX="534.0" layoutY="73.0" prefHeight="26.0" prefWidth="185.0" promptText="Console Manufacturer" visible="false" />
+                        <DatePicker fx:id="releaseDate" layoutX="318.0" layoutY="346.0" prefHeight="26.0" prefWidth="187.0" promptText="Release Date" visible="false" />
+                        <ComboBox fx:id="gameCategory" layoutX="535.0" layoutY="73.0" prefHeight="26.0" prefWidth="181.0" promptText="Category" visible="false" />
+                        <ComboBox fx:id="gamePlatform" layoutX="533.0" layoutY="42.0" prefHeight="26.0" prefWidth="182.0" promptText="Platform" visible="false" />
+                        <ComboBox fx:id="consoleType" layoutX="532.0" layoutY="42.0" prefHeight="26.0" prefWidth="185.0" promptText="Type" visible="false" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="ordersTab" onSelectionChanged="#loadTabData" text="Orders">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="customerOrders" layoutX="14.0" layoutY="169.0" onMouseClicked="#loadOrderData" prefHeight="223.0" prefWidth="262.0" />
+                        <ListView fx:id="orderContents" layoutX="287.0" layoutY="14.0" prefHeight="151.0" prefWidth="438.0" />
+                        <ListView fx:id="employeeList" layoutX="550.0" layoutY="204.0" onMouseClicked="#getEmployeeID" prefHeight="190.0" prefWidth="175.0" />
+                        <ComboBox fx:id="orderStatus" layoutX="550.0" layoutY="169.0" prefHeight="26.0" prefWidth="175.0" promptText="STATUS" />
+                        <TextField fx:id="employeeID" layoutX="550.0" layoutY="396.0" prefHeight="26.0" prefWidth="176.0" promptText="Employee ID" />
+                        <Button layoutX="14.0" layoutY="396.0" mnemonicParsing="false" onAction="#cancelOrder" prefHeight="26.0" prefWidth="124.0" text="Cancel Order" />
+                        <Button fx:id="editOrderButton" layoutX="288.0" layoutY="169.0" mnemonicParsing="false" onAction="#editOrder" prefHeight="26.0" prefWidth="254.0" text="Edit Order" />
+                        <Button layoutX="148.0" layoutY="396.0" mnemonicParsing="false" onAction="#openChat" prefHeight="26.0" prefWidth="127.0" text="Open Chat" />
+                        <ListView fx:id="rushOrders" layoutX="14.0" layoutY="14.0" onMouseClicked="#loadOrderData" prefHeight="152.0" prefWidth="262.0" />
+                        <Button fx:id="orderHistoryButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#viewOrderHistory" prefHeight="26.0" prefWidth="263.0" text="View Order History" />
+                        <Button fx:id="filterButton" layoutX="473.0" layoutY="204.0" mnemonicParsing="false" onAction="#filterOrders" prefHeight="26.0" prefWidth="68.0" text="Filter" />
+                        <DatePicker fx:id="dateFieldFilter" layoutX="288.0" layoutY="204.0" />
+                        <Button fx:id="removeFilterButton" layoutX="438.0" layoutY="239.0" mnemonicParsing="false" onAction="#loadOrders" prefHeight="26.0" prefWidth="103.0" text="Remove Filter" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="warehouseTab" onSelectionChanged="#loadTabData" text="Warehouse">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="freeEmployeeList" layoutX="14.0" layoutY="50.0" prefHeight="295.0" prefWidth="154.0" />
+                        <ComboBox fx:id="selectWarehouse" layoutX="13.0" layoutY="7.0" onAction="#loadWarehouseData" prefHeight="26.0" prefWidth="544.0" promptText="Warehouses" />
+                        <Button layoutX="14.0" layoutY="346.0" mnemonicParsing="false" onAction="#addEmployeeToWarehouse" prefHeight="26.0" prefWidth="155.0" text="Add Employee" />
+                        <ListView fx:id="warehouseEmployeeList" layoutX="183.0" layoutY="50.0" prefHeight="295.0" prefWidth="154.0" />
+                        <Button layoutX="183.0" layoutY="346.0" mnemonicParsing="false" onAction="#removeEmployeeFromWarehouse" prefHeight="26.0" prefWidth="155.0" text="Remove Employee" />
+                        <ListView fx:id="freeProductList" layoutX="401.0" layoutY="50.0" prefHeight="295.0" prefWidth="154.0" />
+                        <Button layoutX="401.0" layoutY="346.0" mnemonicParsing="false" onAction="#addProductToWarehouse" prefHeight="26.0" prefWidth="155.0" text="Add Product" />
+                        <ListView fx:id="warehouseProductList" layoutX="570.0" layoutY="50.0" prefHeight="295.0" prefWidth="154.0" />
+                        <Button layoutX="570.0" layoutY="346.0" mnemonicParsing="false" onAction="#removeProductFromWarehouse" prefHeight="26.0" prefWidth="155.0" text="Remove Product" />
+                        <Button layoutX="401.0" layoutY="393.0" mnemonicParsing="false" onAction="#createWarehouse" prefHeight="26.0" prefWidth="155.0" text="Create a new Warehouse" />
+                        <Button layoutX="569.0" layoutY="7.0" mnemonicParsing="false" onAction="#deleteWarehouse" prefHeight="26.0" prefWidth="155.0" text="Delete this Warehouse" />
+                        <Button layoutX="570.0" layoutY="393.0" mnemonicParsing="false" onAction="#editWarehouse" prefHeight="26.0" prefWidth="155.0" text="Edit Warehouse" />
+                        <ComboBox fx:id="cityBox" layoutX="183.0" layoutY="394.0" prefWidth="155.0" promptText="City" />
+                        <TextField fx:id="addressField" layoutX="13.0" layoutY="393.0" prefHeight="26.0" prefWidth="155.0" promptText="Address" />
+                        <Line endX="612.4000244140625" layoutX="114.0" layoutY="380.0" startX="-100.0" />
+                        <Line endX="612.4000244140625" layoutX="114.0" layoutY="41.0" startX="-100.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="usersTab" onSelectionChanged="#loadTabData" text="Users">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutX="-1.0" prefHeight="435.0" prefWidth="685.0">
+                           <children>
+                              <TextField fx:id="userName" layoutX="8.0" layoutY="256.0" promptText="Name" />
+                              <TextField fx:id="userSurname" layoutX="167.0" layoutY="256.0" promptText="Surname" />
+                              <TextField fx:id="userLogin" layoutX="8.0" layoutY="306.0" promptText="Username" />
+                              <TextField fx:id="userPassword" layoutX="167.0" layoutY="306.0" promptText="Password" />
+                              <DatePicker fx:id="customerDOB" layoutX="343.0" layoutY="255.0" prefHeight="26.0" prefWidth="216.0" promptText="Birth Date" />
+                              <TextField fx:id="customerBilling" layoutX="343.0" layoutY="351.0" prefHeight="26.0" prefWidth="216.0" promptText="Billing Address" />
+                              <TextField fx:id="customerDelivery" layoutX="343.0" layoutY="394.0" prefHeight="26.0" prefWidth="216.0" promptText="Delivery Address" />
+                              <TextField layoutX="570.0" layoutY="4.0" prefHeight="27.0" prefWidth="102.0" promptText="Search" />
+                              <Button fx:id="deleteUserButton" layoutX="621.0" layoutY="394.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="26.0" prefWidth="102.0" text="Delete User" />
+                              <RadioButton fx:id="isAdmin" layoutX="8.0" layoutY="373.0" mnemonicParsing="false" text="Admin" />
+                              <TextField fx:id="customerCard" layoutX="343.0" layoutY="306.0" prefHeight="26.0" prefWidth="216.0" promptText="Card Number" />
+                              <TableView fx:id="userTable" layoutX="8.0" layoutY="4.0" onMouseClicked="#loadUserData" prefHeight="246.0" prefWidth="729.0">
+                                <columns>
+                                  <TableColumn fx:id="userColId" prefWidth="33.0" text="ID" />
+                                  <TableColumn fx:id="userColType" prefWidth="78.39999389648438" text="Type" />
+                                    <TableColumn fx:id="userColName" prefWidth="113.59996795654297" text="Name" />
+                                    <TableColumn fx:id="userColSurname" prefWidth="130.4000244140625" text="Surname" />
+                                    <TableColumn fx:id="userColLogin" prefWidth="104.79998779296875" text="Username" />
+                                    <TableColumn fx:id="userColPassword" prefWidth="116.00009155273438" text="Password" />
+                                    <TableColumn fx:id="userColDate" prefWidth="153.59991455078125" text="Join Date" />
+                                </columns>
+                              </TableView>
+                              <Button fx:id="editUserButton" layoutX="621.0" layoutY="326.0" mnemonicParsing="false" onAction="#editUser" prefHeight="26.0" prefWidth="102.0" text="Edit User" />
+                              <Button fx:id="addUserButton" layoutX="621.0" layoutY="255.0" mnemonicParsing="false" onAction="#addUser" prefHeight="26.0" prefWidth="102.0" text="Add User" />
+                              <RadioButton fx:id="isManager" layoutX="8.0" layoutY="351.0" mnemonicParsing="false" text="Manager">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="userType" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="isCustomer" layoutX="167.0" layoutY="351.0" mnemonicParsing="false" text="Customer" toggleGroup="$userType" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="509.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kursinisprojektas.fxControllers.ProductReview">
+   <children>
+      <ListView fx:id="productReviewList" layoutX="14.0" layoutY="14.0" onMouseClicked="#loadReviews" prefHeight="488.0" prefWidth="218.0">
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#previewProduct" text="Preview Product" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </ListView>
+      <TreeView fx:id="productReviewTree" layoutX="247.0" layoutY="14.0" onMouseClicked="#viewReview" prefHeight="274.0" prefWidth="338.0" />
+      <Slider fx:id="reviewRating" blockIncrement="1.0" layoutX="247.0" layoutY="296.0" max="5.0" prefHeight="25.0" prefWidth="338.0" />
+      <TextField fx:id="reviewTitle" layoutX="247.0" layoutY="322.0" prefHeight="26.0" prefWidth="338.0" promptText="Review Title" />
+      <TextArea fx:id="reviewBody" layoutX="247.0" layoutY="358.0" prefHeight="94.0" prefWidth="338.0" promptText="Review Body" />
+      <Button layoutX="247.0" layoutY="464.0" mnemonicParsing="false" onAction="#addReview" prefHeight="38.0" prefWidth="91.0" text="Add Review" />
+      <Button layoutX="494.0" layoutY="464.0" mnemonicParsing="false" onAction="#deleteReview" prefHeight="38.0" prefWidth="91.0" text="Delete Review" />
+      <Button layoutX="372.0" layoutY="464.0" mnemonicParsing="false" onAction="#updateReview" prefHeight="38.0" prefWidth="91.0" text="Update Review" />
+   </children>
+</AnchorPane>

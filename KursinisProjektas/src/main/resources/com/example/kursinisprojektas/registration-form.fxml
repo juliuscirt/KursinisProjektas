@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="303.0" prefWidth="438.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kursinisprojektas.fxControllers.RegistrationForm">
+   <children>
+      <Pane prefHeight="320.0" prefWidth="438.0">
+         <children>
+            <TextField fx:id="userLogin" layoutX="14.0" layoutY="46.0" prefHeight="32.0" prefWidth="195.0" promptText="Username" />
+            <TextField fx:id="customerDelivery" layoutX="230.0" layoutY="233.0" prefHeight="32.0" prefWidth="195.0" promptText="Delivery Address" />
+            <TextField fx:id="customerCard" layoutX="14.0" layoutY="167.0" prefHeight="32.0" prefWidth="195.0" promptText="XXXX-XXXX-XXXX-XXXX" />
+            <Text fx:id="textLogin" layoutX="14.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="142.13671493530273" />
+            <Text fx:id="textName" layoutX="14.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" wrappingWidth="142.13671493530273" />
+            <Button layoutX="337.0" layoutY="278.0" mnemonicParsing="false" onAction="#registerUser" prefHeight="32.0" prefWidth="87.0" text="Register" />
+            <Text fx:id="textPassword" layoutX="230.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="142.13671493530273" />
+            <TextField fx:id="userSurname" layoutX="230.0" layoutY="100.0" prefHeight="32.0" prefWidth="195.0" promptText="Surname" />
+            <TextField fx:id="userName" layoutX="14.0" layoutY="100.0" prefHeight="32.0" prefWidth="195.0" promptText="Name" />
+            <Text fx:id="textSurname" layoutX="230.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" wrappingWidth="142.13671493530273" />
+            <Text fx:id="textCard" layoutX="14.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card Number" wrappingWidth="142.13671493530273" />
+            <TextField fx:id="customerBilling" layoutX="14.0" layoutY="233.0" prefHeight="32.0" prefWidth="195.0" promptText="Billing Address" />
+            <Text fx:id="textBilling" layoutX="14.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Billing Address" wrappingWidth="142.13671493530273" />
+            <Text fx:id="textDelivery" layoutX="230.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delivery Address" wrappingWidth="142.13671493530273" />
+            <RadioButton fx:id="isCustomer" layoutX="15.0" layoutY="5.0" mnemonicParsing="false" onAction="#disableFields" selected="true" text="Customer">
+               <toggleGroup>
+                  <ToggleGroup fx:id="userType" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="isManager" layoutX="98.0" layoutY="5.0" mnemonicParsing="false" onAction="#disableFields" text="Manager" toggleGroup="$userType" />
+            <TextField fx:id="adminCode" layoutX="241.0" layoutY="282.0" prefHeight="25.0" prefWidth="87.0" promptText="Admin code" visible="false" />
+            <Button layoutX="15.0" layoutY="278.0" mnemonicParsing="false" onAction="#returnToLogin" prefHeight="32.0" prefWidth="87.0" text="Return" />
+            <DatePicker fx:id="customerDOB" layoutX="230.0" layoutY="166.0" prefHeight="32.0" prefWidth="195.0" promptText="YYYY-MM-DD" />
+            <Text fx:id="textDOB" layoutX="230.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Of Birth" wrappingWidth="142.13671493530273" />
+            <CheckBox fx:id="isAdmin" layoutX="335.0" layoutY="5.0" mnemonicParsing="false" text="AdminCheck" visible="false" />
+            <PasswordField fx:id="userPassword" layoutX="230.0" layoutY="46.0" prefHeight="32.0" prefWidth="195.0" promptText="Password" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
